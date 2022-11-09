@@ -1,0 +1,3 @@
+C:\Users\gruni\source\repos\CourseProject\CourseProject\Debug\CourseProject.Form1.resources
+C:\Users\gruni\source\repos\CourseProject\CourseProject\Debug\CourseProject.vcxproj.GenerateResource.cache
+C:\Users\gruni\source\repos\CourseProject\CourseProject\Debug\CourseProject.vcxproj.AssemblyReference.cache
