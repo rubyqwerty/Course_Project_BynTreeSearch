@@ -1,3 +1,7 @@
-﻿  BynaryTreeSearch.cpp
+﻿  Form1.cpp
+C:\Users\gruni\source\repos\CourseProject\CourseProject\Form1.cpp(26,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\gruni\source\repos\CourseProject\CourseProject\Form1.cpp(35,132): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\gruni\source\repos\CourseProject\CourseProject\Form1.cpp(35,127): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\gruni\source\repos\CourseProject\CourseProject\Form1.cpp(38,20): warning C4018: <: несоответствие типов со знаком и без знака
   AssemblyInfo.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   CourseProject.vcxproj -> C:\Users\gruni\source\repos\CourseProject\Debug\CourseProject.exe

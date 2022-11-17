@@ -2,6 +2,6 @@
 
 #include "BynaryTreeSearch.h"
 
-int SortByBynaryTreeSearch(int*, int);
+int SortByBynaryTreeSearch(vector<int>&, int);
 
-int BubbleSorting(int* Array, int size);
+int BubbleSorting(vector<int>&, int size);

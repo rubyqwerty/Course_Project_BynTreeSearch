@@ -60,16 +60,23 @@ int BynaryTreeSearch::min_elem_in_the_subtree(node* edge, node* parent)
 
 int BynaryTreeSearch::deleteNode(int key, node* edge, node* parent)
 {
-	if (!root)	return -1; 
+	if (root == nullptr) return 0;
 	if (!edge) edge = root;
-	if (key == root->value) return 0;
 	if (key == edge->value)
 	{
 		if (!edge->left && !edge->right)
 		{
-			if (parent->value > edge->value) parent->left = nullptr;
-			else  parent->right = nullptr;
-			delete edge;
+			if (edge == root)
+			{
+				delete root;
+				root = nullptr;
+			}
+			else
+			{
+				if (parent->value > edge->value) parent->left = nullptr;
+				else  parent->right = nullptr;
+				delete edge;
+			}
 		}
 		else if (edge->left && edge->right)
 		{
@@ -77,15 +84,36 @@ int BynaryTreeSearch::deleteNode(int key, node* edge, node* parent)
 		}
 		else if (edge->left)
 		{
-			if (parent->value > edge->value) parent->left = edge->left;
-			else parent->right = edge->left;
-			delete edge;
+			if (edge != root)
+			{
+				if (parent->value > edge->value) 
+					parent->left = edge->left;
+				else 
+					parent->right = edge->left;
+				delete edge;
+			}
+			else
+			{
+				node* ROOT = root;
+				root = root->left;
+				delete ROOT;
+			}
+			
 		}
 		else
 		{
-			if (parent->value > edge->value) parent->left = edge->right;
-			else parent->right = edge->right;
-			delete edge;
+			if (edge == root)
+			{
+				node* ROOT = root;
+				root = root->right;
+				delete ROOT;
+			}
+			else 
+			{
+				if (parent->value >= edge->value) parent->left = edge->right;
+				else parent->right = edge->right;
+				delete edge;
+			}
 		}
 		return 1;
 	}
@@ -117,21 +145,22 @@ void BynaryTreeSearch::clear(node* edge)
 		clear(edge->left);
 	if (edge->right)
 		clear(edge->right);
-	delete[] edge;
+	delete edge;
 }
 
 
-void BynaryTreeSearch::bypassing(int* Array, node* edge)
+void BynaryTreeSearch::bypassing(vector<int>& Array, node* edge)
 {
 	if (!edge) edge = root;
 	if (edge->left) bypassing(Array, edge->left);
-	*(Array++) = edge->value;
+	Array.push_back(edge->value);
 	if (edge->right) bypassing(Array, edge->right);
 }
 
 
 void BynaryTreeSearch::Visualization(int x, int y, int val, node* edge)
 {
+	if (root == nullptr) return;
 	if (!edge) edge = root;
 	if (edge->left)
 	{

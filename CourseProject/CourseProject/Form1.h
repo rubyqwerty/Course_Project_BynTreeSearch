@@ -26,41 +26,34 @@ namespace CourseProject {
 		int width;
 		Form1(void)
 		{
-
-			
-
 			InitializeComponent();
-			
-			this->Width = this->Width + 300;
+			this->Width = this->Width + 370;
 			this->Height = this->Height + 100;
 			height = this->Height;
 			width = this->Width;
 			pictureBox1->Height += 100;
-			pictureBox1->Width += 300;
+			pictureBox1->Width += 370;
 			dataGridView1->Width = 486;
 			dataGridView1->Height = 340;
-
 			dataGridView1->Columns->Clear();
-
-			DataGridViewTextBoxColumn ^column0 = gcnew DataGridViewTextBoxColumn();
+			DataGridViewTextBoxColumn^ column0 = gcnew DataGridViewTextBoxColumn();
 			column0->Name = "id";
 			column0->HeaderText = "ÕÓÏÂ";
 			//2 ÒÚÓÎ·Âˆ, ÚÂÍÒÚÓ‚˚È
-			DataGridViewTextBoxColumn ^column1 = gcnew DataGridViewTextBoxColumn();
+			DataGridViewTextBoxColumn^ column1 = gcnew DataGridViewTextBoxColumn();
 			column1->Name = "size";
 			column1->HeaderText = "–‡ÁÏÂ";
 			//3 ÒÚÓÎ·Âˆ, ËÁÓ·‡ÊÂÌËÂ
-			DataGridViewTextBoxColumn ^column2 = gcnew DataGridViewTextBoxColumn();
+			DataGridViewTextBoxColumn^ column2 = gcnew DataGridViewTextBoxColumn();
 			column2->Name = "bubble";
 			column2->HeaderText = "¬ÂÏˇ ÒÓÚËÓ‚ÍË ÏÂÚÓ‰ÓÏ ÔˇÏÓ„Ó Ó·ÏÂÌ‡";
-
 			DataGridViewTextBoxColumn^ column3 = gcnew DataGridViewTextBoxColumn();
 			column3->Name = "byntree";
 			column3->HeaderText = "¬ÂÏˇ ÒÓÚËÓ‚ÍË Ò ÔÓÏÓ˘¸˛ ·ËÌ‡ÌÓ„Ó ‰ÂÂ‚‡ ÔÓËÒÍ‡";
 			//‰Ó·‡‚ÎˇÂÏ ÒÚÓÎ·ˆ˚
 			dataGridView1->Columns->AddRange(column0, column1, column2, column3);
 		}
-		
+
 	protected:
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
@@ -72,8 +65,7 @@ namespace CourseProject {
 				delete components;
 			}
 		}
-	private: 
-		int *Array;
+	private:
 		int Size;
 		BynaryTreeSearch* bts = new BynaryTreeSearch;
 	private: System::Windows::Forms::Button^ button1;
@@ -92,9 +84,12 @@ namespace CourseProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^ „‡ÙËÍToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ Ú‡·ÎËˆ‡ToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ „Î‡‚Ì‡ˇToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ GraphToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ TableToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ MainToolStripMenuItem;
+
+
+
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Number;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Size_array;
@@ -102,7 +97,7 @@ namespace CourseProject {
 	protected:
 
 	private:
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 
@@ -129,9 +124,9 @@ namespace CourseProject {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->„‡ÙËÍToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->Ú‡·ÎËˆ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->„Î‡‚Ì‡ˇToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->GraphToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->TableToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->MainToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Number = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Size_array = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -201,6 +196,7 @@ namespace CourseProject {
 			this->numericUpDown1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->numericUpDown1->Location = System::Drawing::Point(45, 57);
+			this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 99, 0, 0, 0 });
 			this->numericUpDown1->Name = L"numericUpDown1";
 			this->numericUpDown1->Size = System::Drawing::Size(115, 34);
 			this->numericUpDown1->TabIndex = 4;
@@ -286,10 +282,10 @@ namespace CourseProject {
 			this->numericUpDown6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->numericUpDown6->Location = System::Drawing::Point(45, 375);
+			this->numericUpDown6->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000000, 0, 0, 0 });
 			this->numericUpDown6->Name = L"numericUpDown6";
-			this->numericUpDown6->Size = System::Drawing::Size(115, 34);
+			this->numericUpDown6->Size = System::Drawing::Size(117, 34);
 			this->numericUpDown6->TabIndex = 12;
-			this->numericUpDown6->Maximum = 1000000;
 			// 
 			// pictureBox1
 			// 
@@ -323,14 +319,13 @@ namespace CourseProject {
 			this->chart1->TabIndex = 14;
 			this->chart1->Text = L"chart1";
 			this->chart1->Visible = false;
-
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->„‡ÙËÍToolStripMenuItem,
-					this->Ú‡·ÎËˆ‡ToolStripMenuItem, this->„Î‡‚Ì‡ˇToolStripMenuItem
+				this->GraphToolStripMenuItem,
+					this->TableToolStripMenuItem, this->MainToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -338,40 +333,55 @@ namespace CourseProject {
 			this->menuStrip1->TabIndex = 15;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// „‡ÙËÍToolStripMenuItem
+			// GraphToolStripMenuItem
 			// 
-			this->„‡ÙËÍToolStripMenuItem->Name = L"„‡ÙËÍToolStripMenuItem";
-			this->„‡ÙËÍToolStripMenuItem->Size = System::Drawing::Size(73, 24);
-			this->„‡ÙËÍToolStripMenuItem->Text = L"√‡ÙËÍ";
-			this->„‡ÙËÍToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::„‡ÙËÍToolStripMenuItem_Click);
+			this->GraphToolStripMenuItem->Name = L"GraphToolStripMenuItem";
+			this->GraphToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->GraphToolStripMenuItem->Text = L"√‡ÙËÍ";
+			this->GraphToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::GraphToolStripMenuItem_Click);
 			// 
-			// Ú‡·ÎËˆ‡ToolStripMenuItem
+			// TableToolStripMenuItem
 			// 
-			this->Ú‡·ÎËˆ‡ToolStripMenuItem->Name = L"Ú‡·ÎËˆ‡ToolStripMenuItem";
-			this->Ú‡·ÎËˆ‡ToolStripMenuItem->Size = System::Drawing::Size(82, 24);
-			this->Ú‡·ÎËˆ‡ToolStripMenuItem->Text = L"“‡·ÎËˆ‡";
-			this->Ú‡·ÎËˆ‡ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::Ú‡·ÎËˆ‡ToolStripMenuItem_Click);
+			this->TableToolStripMenuItem->Name = L"TableToolStripMenuItem";
+			this->TableToolStripMenuItem->Size = System::Drawing::Size(82, 24);
+			this->TableToolStripMenuItem->Text = L"“‡·ÎËˆ‡";
+			this->TableToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::TableToolStripMenuItem_Click);
 			// 
-			// „Î‡‚Ì‡ˇToolStripMenuItem
+			// MainToolStripMenuItem
 			// 
-			this->„Î‡‚Ì‡ˇToolStripMenuItem->Name = L"„Î‡‚Ì‡ˇToolStripMenuItem";
-			this->„Î‡‚Ì‡ˇToolStripMenuItem->Size = System::Drawing::Size(79, 24);
-			this->„Î‡‚Ì‡ˇToolStripMenuItem->Text = L"√Î‡‚Ì‡ˇ";
-			this->„Î‡‚Ì‡ˇToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::„Î‡‚Ì‡ˇToolStripMenuItem_Click);
+			this->MainToolStripMenuItem->Name = L"MainToolStripMenuItem";
+			this->MainToolStripMenuItem->Size = System::Drawing::Size(79, 24);
+			this->MainToolStripMenuItem->Text = L"√Î‡‚Ì‡ˇ";
+			this->MainToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::MainToolStripMenuItem_Click);
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			
-			this->dataGridView1->Location = System::Drawing::Point(338, 42);
+			this->dataGridView1->Location = System::Drawing::Point(12, 42);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 80;
 			this->dataGridView1->RowTemplate->Height = 64;
 			this->dataGridView1->Size = System::Drawing::Size(678, 58);
 			this->dataGridView1->TabIndex = 16;
 			this->dataGridView1->Visible = false;
-			
-			
+			// 
+			// Number
+			// 
+			this->Number->MinimumWidth = 6;
+			this->Number->Name = L"Number";
+			this->Number->Width = 125;
+			// 
+			// Size_array
+			// 
+			this->Size_array->MinimumWidth = 6;
+			this->Size_array->Name = L"Size_array";
+			this->Size_array->Width = 125;
+			// 
+			// Time_sort
+			// 
+			this->Time_sort->MinimumWidth = 6;
+			this->Time_sort->Name = L"Time_sort";
+			this->Time_sort->Width = 125;
 			// 
 			// Form1
 			// 
@@ -416,16 +426,16 @@ namespace CourseProject {
 			this->PerformLayout();
 
 		}
-
-			#pragma endregion
-			private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-			private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-			private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e);
-			private: System::Void „‡ÙËÍToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-			private: System::Void Ú‡·ÎËˆ‡ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-			private: System::Void „Î‡‚Ì‡ˇToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-			private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
-			private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
-			private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e);
-};
+#pragma endregion
+	private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void GraphToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void TableToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void MainToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e);
+	private: void Update();
+	};
 }

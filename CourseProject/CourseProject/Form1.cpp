@@ -1,21 +1,24 @@
 #include "pch.h"
 #include "Form1.h"
 #include "string"
-using namespace CourseProject;
 
+using namespace CourseProject;
 using namespace System::Drawing;
 
+vector<int>ARRAY;
 
-
+void Form1::Update()
+{
+	bts->coordinate.clear();
+	bts->arrowsCor.clear();
+	bts->Visualization(450, 10, 220);
+	pictureBox1->Refresh();
+}
 
 System::Void Form1::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	bts->push(Decimal::ToInt32(numericUpDown1->Value));
-	bts->coordinate.clear();
-	bts->arrowsCor.clear();
-	bts->Visualization(450,10, 220);
-	
-	pictureBox1->Refresh();
+	Update();
 }
 
 System::Void Form1::pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
@@ -27,7 +30,7 @@ System::Void Form1::pictureBox1_Paint(System::Object^ sender, System::Windows::F
 		y = bts->coordinate[i].y;
 		e->Graphics->DrawEllipse(System::Drawing::Pens::Green, x, y, 30, 30);
 		
-		System::Drawing::Font^ drawFont = gcnew System::Drawing::Font("Verdana", 10);
+		System::Drawing::Font^ drawFont = gcnew System::Drawing::Font("Calibry", 10);
 	    SolidBrush^ fontBrush = gcnew SolidBrush(Color::Blue);
 	    e->Graphics->DrawString(gcnew System::String(to_string(bts->coordinate[i].value).c_str()) , drawFont, fontBrush, PointF(x+8, y+7));
 	}
@@ -46,42 +49,28 @@ System::Void Form1::pictureBox1_Paint(System::Object^ sender, System::Windows::F
 System::Void Form1::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	bts->deleteNode(Decimal::ToInt32(numericUpDown2->Value));
-
-	bts->coordinate.clear();
-	bts->arrowsCor.clear();
-	bts->Visualization(450, 10, 220);
-
-	pictureBox1->Refresh();
+	Update();
 }
 
 System::Void Form1::button4_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	bts->replace(Decimal::ToInt32(numericUpDown4->Value), Decimal::ToInt32(numericUpDown5->Value));
-
-	bts->coordinate.clear();
-	bts->arrowsCor.clear();
-	bts->Visualization(450, 10, 220);
-
-	pictureBox1->Refresh();
+	Update();
 }
 
 System::Void Form1::button6_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	delete[] Array;
-
+	ARRAY.clear();
 	Size = Decimal::ToInt32(numericUpDown6->Value);
-	Array = new int[Size];
-
-	unsigned rand_value = 11;
-	srand(rand_value); // ğàíäîìèçàöèÿ ãåíåğàòîğà ñëó÷àéíûõ ÷èñåë
+	unsigned rand_value = 341;
+	srand(rand_value); 
 
 	for (int i = 0; i < Size; ++i)
-		Array[i] = (rand()%100000);
-
+		ARRAY.push_back(rand() % 100000000);
 
 }
 
-System::Void Form1::òàáëèöàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+System::Void Form1::TableToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	button1->Visible = false;
 	button2->Visible = false;
@@ -99,14 +88,11 @@ System::Void Form1::òàáëèöàToolStripMenuItem_Click(System::Object^ sender, Syste
 	dataGridView1->Visible = true;
 	chart1->Visible = false;
 	label1->Visible = false;
-	if (this->Width == width)
-	{
-		this->Width = this->Width - 300;
-		this->Height = this->Height - 100;
-	}
+	this->Width = width - 780;
+	this->Height = height - 250;
 }
 
-System::Void Form1::ãğàôèêToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+System::Void Form1::GraphToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	button1->Visible = false;
 	button2->Visible = false;
@@ -125,14 +111,11 @@ System::Void Form1::ãğàôèêToolStripMenuItem_Click(System::Object^ sender, System
 	chart1->Visible = true;
 	label1->Visible = false;
 	chart1->Location = Point(85, 35);
-	if (this->Width == width)
-	{
-		this->Width = this->Width - 300;
-		this->Height = this->Height - 100;
-	}
+	this->Width = width - 400;
+	this->Height = height - 100;
 }
 
-System::Void Form1::ãëàâíàÿToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+System::Void Form1::MainToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	button1->Visible = true;
 	button2->Visible = true;
@@ -150,19 +133,16 @@ System::Void Form1::ãëàâíàÿToolStripMenuItem_Click(System::Object^ sender, Syste
 	chart1->Visible = false;
 	dataGridView1->Visible = false;
 	label1->Visible = true;
-	if (this->Width != width)
-	{
-		this->Width = this->Width + 300;
-		this->Height = this->Height + 100;
-	}
+	this->Width = width;
+	this->Height = height;
 
 }
 
 System::Void Form1::button5_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	double TimeBynTreeS = SortByBynaryTreeSearch(Array, Size);
+	double TimeBynTreeS = SortByBynaryTreeSearch(ARRAY, Size);
 
-	double TimeBubbleSort = BubbleSorting(Array, Size);
+	double TimeBubbleSort = BubbleSorting(ARRAY, Size);
 
 	chart1->Series[0]->Points->AddXY(Size, TimeBynTreeS);
 	chart1->Series[1]->Points->AddXY(Size, TimeBubbleSort);

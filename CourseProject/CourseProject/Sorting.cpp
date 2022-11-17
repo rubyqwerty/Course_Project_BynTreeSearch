@@ -1,30 +1,28 @@
 #include "pch.h"
 #include "Sorting.h"
 
-int SortByBynaryTreeSearch(int* Array, int Size)
+int SortByBynaryTreeSearch(vector<int>& Array, int Size)
 {
-    int* CopyArray = new int[Size];
-    for (int i = 0; i < Size; ++i) CopyArray[i] = Array[i];
+    vector<int> SortArray;
 
     unsigned int start_time = clock();
     
-	BynaryTreeSearch* bts = new BynaryTreeSearch;
+	BynaryTreeSearch bts;
+    
+    for (int i = 0; i < Size; ++i)
+        bts.push(Array[i]);
 
-	for (int i = 0; i < Size; ++i)
-		bts->push(CopyArray[i]);
-	bts->bypassing(CopyArray);
+	bts.bypassing(SortArray);
 
     unsigned int end_time = clock(); 
-    unsigned int search_time = end_time - start_time; 
+    unsigned int sort_time = end_time - start_time; 
 
-    delete[] CopyArray;
-
-    return search_time;
+    return sort_time;
 }
 
-int BubbleSorting(int* Array, int size)
+int BubbleSorting(vector<int>& Array, int size)
 {
-    int* CopyArray = new int[size];
+    vector<int> CopyArray(size);
     for (int i = 0; i < size; ++i) CopyArray[i] = Array[i];
 
     unsigned int start_time = clock(); 
@@ -39,9 +37,7 @@ int BubbleSorting(int* Array, int size)
             }
 
     unsigned int end_time = clock(); 
-    unsigned int search_time = end_time - start_time; 
+    unsigned int sort_time = end_time - start_time; 
 
-    delete[] CopyArray;
-
-    return search_time;
+    return sort_time;
 }

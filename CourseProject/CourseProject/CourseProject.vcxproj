@@ -144,9 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BynaryTreeSearch.h" />
+    <ClInclude Include="Coordinate.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Node.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sorting.h" />
