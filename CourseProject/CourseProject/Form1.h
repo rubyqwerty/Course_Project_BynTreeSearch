@@ -23,6 +23,8 @@ namespace CourseProject {
 	{
 	public:
 		int height;
+	private: System::Windows::Forms::Label^ label2;
+	public:
 		int width;
 		Form1(void)
 		{
@@ -131,6 +133,7 @@ namespace CourseProject {
 			this->Number = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Size_array = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Time_sort = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->BeginInit();
@@ -177,6 +180,7 @@ namespace CourseProject {
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"Найти значение";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &Form1::button3_Click);
 			// 
 			// button4
 			// 
@@ -383,6 +387,16 @@ namespace CourseProject {
 			this->Time_sort->Name = L"Time_sort";
 			this->Time_sort->Width = 125;
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label2->Location = System::Drawing::Point(166, 207);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(0, 32);
+			this->label2->TabIndex = 17;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -390,6 +404,7 @@ namespace CourseProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(1233, 679);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->pictureBox1);
@@ -437,5 +452,6 @@ namespace CourseProject {
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e);
 	private: void Update();
-	};
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
+};
 }

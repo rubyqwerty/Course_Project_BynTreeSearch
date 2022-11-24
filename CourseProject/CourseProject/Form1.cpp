@@ -15,6 +15,14 @@ void Form1::Update()
 	pictureBox1->Refresh();
 }
 
+System::Void Form1::button3_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (bts->deleteNode(Decimal::ToInt32(numericUpDown3->Value)))
+		label2->Text = "1";
+	else
+		label2->Text = "0";
+}
+
 System::Void Form1::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	bts->push(Decimal::ToInt32(numericUpDown1->Value));
